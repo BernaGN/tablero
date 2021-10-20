@@ -26,12 +26,12 @@ class EstatuSeeder extends Seeder
         ]);
         Estatu::create([
             'name' => 'En proceso',
-            'textColor' => 'text-dark',
+            'textColor' => 'text-white',
             'backgroundColor' => 'bg-primary',
         ]);
         Estatu::create([
             'name' => 'Finalizada',
-            'textColor' => 'text-dark',
+            'textColor' => 'text-white',
             'backgroundColor' => 'bg-success',
         ]);
     }
