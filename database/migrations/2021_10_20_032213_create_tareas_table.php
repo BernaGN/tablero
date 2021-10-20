@@ -17,7 +17,8 @@ class CreateTareasTable extends Migration
             $table->bigIncrements('id');
             $table->string('titulo');
             $table->text('descripcion');
-            $table->string('estatus');
+            $table->unsignedInteger('estatu_id');
+            $table->foreign('estatu_id')->references('id')->on('estatus');
             $table->timestamps();
             $table->softDeletes();
         });

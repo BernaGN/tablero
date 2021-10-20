@@ -3,10 +3,20 @@
 namespace App\Http\Controllers;
 
 use App\Models\Tarea;
+use App\Models\Estatu;
 use Illuminate\Http\Request;
 
 class TareaController extends Controller
 {
+    /**
+     * Create a new controller instance.
+     *
+     * @return void
+     */
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
     /**
      * Display a listing of the resource.
      *
@@ -14,17 +24,10 @@ class TareaController extends Controller
      */
     public function index()
     {
-        //
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
+        return view('tareas.index', [
+            'estatus' => Estatu::all(),
+            'tareas' => Tarea::all(),
+        ]);
     }
 
     /**
@@ -51,17 +54,6 @@ class TareaController extends Controller
     }
 
     /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
-    }
-
-    /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
@@ -70,7 +62,7 @@ class TareaController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $tarea = Tarea::findOrFail($id);
+        $tarea = Tarea::findOrFail($request->tarea_id);
         $tarea->update($request->all());
         return back();
     }
@@ -83,6 +75,8 @@ class TareaController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $tarea = Tarea::findOrFail($id);
+        $tarea->delete();
+        return back();
     }
 }

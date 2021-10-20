@@ -8,21 +8,34 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Tarea extends Model
 {
+
+    //Propiedades
+
     use HasFactory;
 
     use SoftDeletes;
 
-    protected const TAREA_CLASS_TODO = 'secondary';
-    protected const TAREA_CLASS_DOING = 'primary';
-    protected const TAREA_CLASS_DONE = 'success';
-
     protected $fillable = [
         'titulo',
         'descripcion',
-        'estatus',
+        'estatu_id',
     ];
+
+    //Relaciones
 
     public function cometarios() {
         return $this->hasMany(Comentario::class);
+    }
+
+    //Accesors
+
+    //Mutators
+
+    public function setTituloAttribute($value) {
+        $this->attributes['titulo'] = strtoupper($value);
+    }
+
+    public function setDescripcionAttribute($value) {
+        $this->attributes['descripcion'] = strtoupper($value);
     }
 }

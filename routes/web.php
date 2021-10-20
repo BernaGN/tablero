@@ -21,4 +21,4 @@ Auth::routes();
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
 
-Route::resource('/tareas', TareaController::class);
+Route::resource('/tareas', TareaController::class)->except('create', 'edit');
