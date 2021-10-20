@@ -17,7 +17,7 @@
             <select name="backgroundColor_id" id="backgroundColor_id" class="form-control" required>
                 <option value=""></option>
                 @foreach ($colores as $color)
-                    <option value="{{ $color->id }}" class="bg-{{ $color->nombre }}"></option>
+                    <option value="{{ $color->id }}" class="bg-{{ $color->nombre }}">{{ $color->nombre }}</option>
                 @endforeach
             </select>
         </div>
@@ -26,7 +26,8 @@
             <select name="textColor_id" id="textColor_id" class="form-control" required>
                 <option value=""></option>
                 @foreach ($colores as $color)
-                    <option value="{{ $color->id }}" class="bg-{{ $color->nombre }}"></option>
+                    <option value="{{ $color->id }}" class="bg-{{ $color->nombre }}">{{ $color->nombre }}
+                    </option>
                 @endforeach
             </select>
         </div>

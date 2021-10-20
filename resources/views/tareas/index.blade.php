@@ -13,7 +13,8 @@
                 @foreach ($estatus as $estatu)
                     <div class="card col-md">
                         <div class="card-header mt-2 bg-{{ $estatu->backgroundColor->nombre }}">
-                            <h5 class="card-title text-{{ $estatu->textColor->nombre }}">{{ $estatu->name }}</h5>
+                            <h5 class="card-title text-center text-{{ $estatu->textColor->nombre }}">{{ $estatu->name }}
+                            </h5>
                         </div>
                         <div class="card-body">
                             @each('tareas.tarea', $tareas->where('estatu_id', $estatu->id), 'tarea')
