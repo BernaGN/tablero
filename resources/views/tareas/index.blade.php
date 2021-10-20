@@ -18,6 +18,11 @@
                         </div>
                         <div class="card-body">
                             @each('tareas.tarea', $tareas->where('estatu_id', $estatu->id), 'tarea')
+                            @foreach ($tareas->where('estatu_id', $estatu->id) as $tarea)
+                                @foreach ($tarea as $comentario)
+                                    {{ $comentario->comentario }}
+                                @endforeach
+                            @endforeach
                         </div>
                     </div>
                 @endforeach
@@ -50,6 +55,14 @@
             </div>
         </div>
     </div>
+
+    <div class="modal" id="agregarComentario" tabindex="-1" role="dialog">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                @include('tareas.comentario')
+            </div>
+        </div>
+    </div>
 @endsection
 
 @section('js')
@@ -67,6 +80,12 @@
             modal.find('.modal-body #titulo').val(titulo)
             modal.find('.modal-body #descripcion').val(descripcion)
             modal.find('.modal-body #estatu_id').val(estatu)
+        })
+        $('#agregarComentario').on('show.bs.modal', function(event) {
+            var button = $(event.relatedTarget)
+            var id = button.data('id')
+            var modal = $(this)
+            modal.find('.modal-body #tarea_id').val(id)
         })
     </script>
 @endsection

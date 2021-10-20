@@ -23,7 +23,7 @@ class Tarea extends Model
 
     //Relaciones
 
-    public function cometarios() {
+    public function comentarios() {
         return $this->hasMany(Comentario::class);
     }
 

@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Estatu;
+use App\Models\Comentario;
 use Illuminate\Http\Request;
 
-class EstatuController extends Controller
+class ComentarioController extends Controller
 {
 
     /**
@@ -16,7 +16,7 @@ class EstatuController extends Controller
      */
     public function store(Request $request)
     {
-        Estatu::create($request->all());
+        Comentario::create($request->all());
         return back();
     }
 }

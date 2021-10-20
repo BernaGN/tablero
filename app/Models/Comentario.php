@@ -13,4 +13,8 @@ class Comentario extends Model
         'comentario',
         'tarea_id',
     ];
+
+    public function tarea() {
+        return $this->belongsTo(Tarea::class);
+    }
 }
