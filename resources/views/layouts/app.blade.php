@@ -74,7 +74,7 @@
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                                     <a class="dropdown-item" href="{{ route('logout') }}"
                                         onclick="event.preventDefault();
-                                                                                                                                                                                                            document.getElementById('logout-form').submit();">
+                                                                                                                                                                                                                    document.getElementById('logout-form').submit();">
                                         {{ __('Logout') }}
                                     </a>
 
@@ -94,22 +94,7 @@
             @yield('content')
         </main>
     </div>
-    <script src="{{ asset('js/jquery.min.js') }}"></script>
-    <script src="{{ asset('js/bootstrap.bundle.js') }}"></script>
-    <script>
-        $('#editarTarea').on('show.bs.modal', function(event) {
-            var button = $(event.relatedTarget)
-            var id = button.data('id')
-            var titulo = button.data('titulo')
-            var descripcion = button.data('descripcion')
-            var estatu = button.data('estatu')
-            var modal = $(this)
-            modal.find('.modal-body #tarea_id').val(id)
-            modal.find('.modal-body #titulo').val(titulo)
-            modal.find('.modal-body #descripcion').val(descripcion)
-            modal.find('.modal-body #estatu_id').val(estatu)
-        })
-    </script>
+    @yield('js')
 </body>
 
 </html>
