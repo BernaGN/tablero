@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Color;
 use App\Models\Tarea;
 use App\Models\Estatu;
 use Illuminate\Http\Request;
@@ -27,6 +28,7 @@ class TareaController extends Controller
         return view('tareas.index', [
             'estatus' => Estatu::all(),
             'tareas' => Tarea::all(),
+            'colores' => Color::all(),
         ]);
     }
 

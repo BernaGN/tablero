@@ -13,14 +13,22 @@
                 aria-describedby="helpId" required>
         </div>
         <div class="form-group">
-            <label for="backgroundColor">Color de fondo</label>
-            <input type="text" name="backgroundColor" id="backgroundColor" class="form-control"
-                placeholder="Ingrese el color de la columna" aria-describedby="helpId" required>
+            <label for="backgroundColor_id">Color de fondo</label>
+            <select name="backgroundColor_id" id="backgroundColor_id" class="form-control" required>
+                <option value=""></option>
+                @foreach ($colores as $color)
+                    <option value="{{ $color->id }}" class="bg-{{ $color->nombre }}"></option>
+                @endforeach
+            </select>
         </div>
         <div class="form-group">
-            <label for="textColor">Color de texto</label>
-            <input type="text" name="textColor" id="textColor" class="form-control"
-                placeholder="Ingrese el color de textto de la columna" aria-describedby="helpId" required>
+            <label for="textColor_id">Color de texto</label>
+            <select name="textColor_id" id="textColor_id" class="form-control" required>
+                <option value=""></option>
+                @foreach ($colores as $color)
+                    <option value="{{ $color->id }}" class="bg-{{ $color->nombre }}"></option>
+                @endforeach
+            </select>
         </div>
     </div>
     <div class="modal-footer">

@@ -11,7 +11,15 @@ class Estatu extends Model
 
     protected $fillable = [
         'name',
-        'backgroundColor',
-        'textColor',
+        'backgroundColor_id',
+        'textColor_id',
     ];
+
+    public function backgroundColor() {
+        return $this->belongsTo(Color::class, 'backgroundColor_id');
+    }
+
+    public function textColor() {
+        return $this->belongsTo(Color::class, 'textColor_id');
+    }
 }

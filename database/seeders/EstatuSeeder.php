@@ -16,23 +16,23 @@ class EstatuSeeder extends Seeder
     {
         Estatu::create([
             'name' => 'Back Log',
-            'textColor' => 'text-white',
-            'backgroundColor' => 'bg-dark',
+            'textColor_id' => 9,
+            'backgroundColor_id' => 8,
         ]);
         Estatu::create([
             'name' => 'Pendiente',
-            'textColor' => 'text-white',
-            'backgroundColor' => 'bg-secondary',
+            'textColor_id' => 9,
+            'backgroundColor_id' => 2,
         ]);
         Estatu::create([
             'name' => 'En proceso',
-            'textColor' => 'text-white',
-            'backgroundColor' => 'bg-primary',
+            'textColor_id' => 9,
+            'backgroundColor_id' => 1,
         ]);
         Estatu::create([
             'name' => 'Finalizada',
-            'textColor' => 'text-white',
-            'backgroundColor' => 'bg-success',
+            'textColor_id' => 9,
+            'backgroundColor_id' => 3,
         ]);
     }
 }
