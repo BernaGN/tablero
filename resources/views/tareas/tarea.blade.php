@@ -12,9 +12,10 @@
     @method('DELETE')
     <a class="btn btn-warning" href="#" role="button" data-toggle="modal" data-target="#editarTarea"
         data-id="{{ $tarea->id }}" data-titulo="{{ $tarea->titulo }}"
-        data-descripcion="{{ $tarea->descripcion }}" data-estatu="{{ $tarea->estatu_id }}">Editar</a>
+        data-descripcion="{{ $tarea->descripcion }}" data-estatu="{{ $tarea->estatu_id }}">
+        <i class="fas fa-pencil-alt"></i> Editar</a>
 
-    <button class="btn btn-danger" type="submit"
-        onclick="return confirm('Deseas eliminar esta tarea?');">Eliminar</button>
+    <button class="btn btn-danger" type="submit" onclick="return confirm('Deseas eliminar esta tarea?');"><i
+            class="fas fa-trash-alt"></i> Eliminar</button>
 </form>
 <hr />
