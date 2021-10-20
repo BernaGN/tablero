@@ -1,5 +1,4 @@
 <form action="{{ route('tareas.store') }}" method="POST">
-    @csrf
     <div class="modal-header">
         <h5 class="modal-title">Agregar Tarea</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
@@ -7,6 +6,7 @@
         </button>
     </div>
     <div class="modal-body">
+        @csrf
         <div class="form-group">
             <label for="titulo">Titulo</label>
             <input type="text" name="titulo" id="titulo" class="form-control"

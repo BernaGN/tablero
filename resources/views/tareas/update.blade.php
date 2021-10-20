@@ -17,8 +17,7 @@
         <div class="form-group">
             <label for="descripcion">Descripcion</label>
             <textarea type="text" name="descripcion" id="descripcion" class="form-control"
-                placeholder="Ingrese el descripcion de la tarea" aria-describedby="helpId" required>
-                                        </textarea>
+                placeholder="Ingrese el descripcion de la tarea" aria-describedby="helpId" required></textarea>
         </div>
         <div class="form-group">
             <label for="estatu_id">Estatus</label>

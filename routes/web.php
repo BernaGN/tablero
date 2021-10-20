@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\TareaController;
+use App\Http\Controllers\EstatuController;
 
 /*
 |--------------------------------------------------------------------------
@@ -22,3 +23,4 @@ Auth::routes();
 Route::get('/', [HomeController::class, 'index'])->name('home');
 
 Route::resource('/tareas', TareaController::class)->except('create', 'edit');
+Route::resource('/estatus', EstatuController::class)->except('create', 'edit');
