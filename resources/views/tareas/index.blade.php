@@ -18,11 +18,6 @@
                         </div>
                         <div class="card-body">
                             @each('tareas.tarea', $tareas->where('estatu_id', $estatu->id), 'tarea')
-                            @foreach ($tareas->where('estatu_id', $estatu->id) as $tarea)
-                                @foreach ($tarea as $comentario)
-                                    {{ $comentario->comentario }}
-                                @endforeach
-                            @endforeach
                         </div>
                     </div>
                 @endforeach

@@ -20,4 +20,7 @@
     <button class="btn btn-danger" type="submit" onclick="return confirm('Deseas eliminar esta tarea?');"><i
             class="fas fa-trash-alt"></i> Eliminar</button>
 </form>
+@foreach ($tarea->comentarios as $comentario)
+    <p>{{ $comentario->comentario }}</p>
+@endforeach
 <hr />
