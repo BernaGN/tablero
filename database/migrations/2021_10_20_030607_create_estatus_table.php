@@ -16,6 +16,8 @@ class CreateEstatusTable extends Migration
         Schema::create('estatus', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name');
+            $table->unsignedInteger('tipo_id');
+            $table->foreign('tipo_id')->references('id')->on('tipos');
             $table->unsignedInteger('textColor_id');
             $table->foreign('textColor_id')->references('id')->on('colores');
             $table->unsignedInteger('backgroundColor_id');

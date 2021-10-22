@@ -11,6 +11,7 @@ class Estatu extends Model
 
     protected $fillable = [
         'name',
+        'tipo_id',
         'backgroundColor_id',
         'textColor_id',
     ];

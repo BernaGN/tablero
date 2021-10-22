@@ -27,7 +27,7 @@ class TareaController extends Controller
     public function index()
     {
         return view('tareas.index', [
-            'estatus' => Estatu::all(),
+            'estatus' => Estatu::where('tipo_id', 1)->get(),
             'tareas' => Tarea::all(),
             'colores' => Color::all(),
         ]);
