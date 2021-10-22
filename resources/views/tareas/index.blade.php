@@ -89,6 +89,12 @@
             modal.find('.modal-body #descripcion').val(descripcion)
             modal.find('.modal-body #estatu_id').val(estatu)
         })
+        $('#confirm-delete').on('show.bs.modal', function(event) {
+            var button = $(event.relatedTarget)
+            var id = button.data('id')
+            var modal = $(this)
+            modal.find('.modal-body #tarea_id').val(id)
+        })
         $('#agregarComentario').on('show.bs.modal', function(event) {
             var button = $(event.relatedTarget)
             var id = button.data('id')
@@ -96,7 +102,7 @@
             modal.find('.modal-body #tarea_id').val(id)
         })
         toastr.options = {
-            "closeButton": false,
+            "closeButton": true,
             "debug": false,
             "newestOnTop": false,
             "progressBar": true,
