@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateEstatusTable extends Migration
+class CreateEstadosTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,11 @@ class CreateEstatusTable extends Migration
      */
     public function up()
     {
-        Schema::create('estatus', function (Blueprint $table) {
+        Schema::create('estados', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name');
-            $table->unsignedInteger('tipo_id');
-            $table->foreign('tipo_id')->references('id')->on('tipos');
+            $table->unsignedInteger('configuracion_id');
+            $table->foreign('configuracion_id')->references('id')->on('configuraciones');
             $table->unsignedInteger('textColor_id');
             $table->foreign('textColor_id')->references('id')->on('colores');
             $table->unsignedInteger('backgroundColor_id');
@@ -33,6 +33,6 @@ class CreateEstatusTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('estatus');
+        Schema::dropIfExists('estados');
     }
 }

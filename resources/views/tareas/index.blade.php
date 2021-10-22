@@ -9,6 +9,8 @@
 
 @section('content')
     <div class="container">
+        <p>{{ $proyecto->nombre }}</p>
+        <p>{{ $proyecto->descripcion }}</p>
         <div class="card-group">
             <button type="submit" class="btn btn-default" data-toggle="modal" data-target="#agregarTarea"><i
                     class="fas fa-plus"></i> Agregar Tarea
@@ -17,21 +19,24 @@
                     class="fas fa-plus"></i> Agregar Columna
             </button>
             <div class="row col-12">
-                @foreach ($estatus as $estatu)
+                @foreach ($estados as $estado)
                     <div class="card col-md">
-                        <div class="card-header mt-2 bg-{{ $estatu->backgroundColor->nombre }}">
-                            <h5 class="card-title text-center text-{{ $estatu->textColor->nombre }}">{{ $estatu->name }}
+                        <div class="card-header mt-2 bg-{{ $estado->backgroundColor->nombre }}">
+                            <h5 class="card-title text-center text-{{ $estado->textColor->nombre }}">{{ $estado->name }}
                             </h5>
                         </div>
                         <div class="card-body">
-                            @each('tareas.show', $tareas->where('estatu_id', $estatu->id), 'tarea')
+                            @each('tareas.show', $tareas->where('estado_id', $estado->id), 'tarea')
                         </div>
                     </div>
                 @endforeach
             </div>
         </div>
     </div>
+@endsection
 
+
+@section('modal')
     <div class="modal" id="agregarTarea" tabindex="-1" role="dialog">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
@@ -76,31 +81,8 @@
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="{{ asset('js/jquery.min.js') }}"></script>
     <script src="{{ asset('js/bootstrap.bundle.js') }}"></script>
+    <script src="{{ asset('js/modal.js') }}"></script>
     <script>
-        $('#editarTarea').on('show.bs.modal', function(event) {
-            var button = $(event.relatedTarget)
-            var id = button.data('id')
-            var titulo = button.data('titulo')
-            var descripcion = button.data('descripcion')
-            var estatu = button.data('estatu')
-            var modal = $(this)
-            modal.find('.modal-body #tarea_id').val(id)
-            modal.find('.modal-body #titulo').val(titulo)
-            modal.find('.modal-body #descripcion').val(descripcion)
-            modal.find('.modal-body #estatu_id').val(estatu)
-        })
-        $('#confirm-delete').on('show.bs.modal', function(event) {
-            var button = $(event.relatedTarget)
-            var id = button.data('id')
-            var modal = $(this)
-            modal.find('.modal-body #tarea_id').val(id)
-        })
-        $('#agregarComentario').on('show.bs.modal', function(event) {
-            var button = $(event.relatedTarget)
-            var id = button.data('id')
-            var modal = $(this)
-            modal.find('.modal-body #tarea_id').val(id)
-        })
         toastr.options = {
             "closeButton": true,
             "debug": false,
@@ -119,6 +101,10 @@
             "hideMethod": "fadeOut"
         }
     </script>
+@endsection
+
+
+@section('toastr')
     @if (session('agregado') && session('tipo'))
         <script>
             toastr.success('{{ session('tipo') }} {{ session('agregado') }} correctamente')

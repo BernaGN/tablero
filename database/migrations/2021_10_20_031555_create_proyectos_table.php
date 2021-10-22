@@ -17,9 +17,12 @@ class CreateProyectosTable extends Migration
             $table->bigIncrements('id');
             $table->string('nombre');
             $table->text('descripcion');
+            $table->unsignedInteger('configuracion_id');
+            $table->foreign('configuracion_id')->references('id')->on('configuraciones');
             $table->unsignedBigInteger('user_id');
             $table->foreign('user_id')->references('id')->on('users');
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

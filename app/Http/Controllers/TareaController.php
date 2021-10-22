@@ -4,7 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Color;
 use App\Models\Tarea;
-use App\Models\Estatu;
+use App\Models\Estado;
+use App\Models\Proyecto;
 use Illuminate\Http\Request;
 
 class TareaController extends Controller
@@ -20,20 +21,6 @@ class TareaController extends Controller
     }
 
     /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
-    {
-        return view('tareas.index', [
-            'estatus' => Estatu::where('tipo_id', 1)->get(),
-            'tareas' => Tarea::all(),
-            'colores' => Color::all(),
-        ]);
-    }
-
-    /**
      * Store a newly created resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
@@ -43,6 +30,22 @@ class TareaController extends Controller
     {
         Tarea::create($request->all());
         return back()->with(['tipo' => 'Tarea'])->with(['agregado' => 'agregada']);
+    }
+
+    /**
+     * Display the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function show($id)
+    {
+        return view('tareas.index', [
+            'proyecto' => Proyecto::find($id),
+            'estados' => Proyecto::find($id)->configuracion->estados,
+            'tareas' => Tarea::where('proyecto_id', $id)->get(),
+            'colores' => Color::all(),
+        ]);
     }
 
     /**
@@ -56,7 +59,7 @@ class TareaController extends Controller
     {
         $tarea = Tarea::findOrFail($request->tarea_id);
         $tarea->update($request->all());
-        return back()->with(['modificado' => 'modificada']);
+        return back()->with(['tipo' => 'Tarea'])->with(['modificado' => 'modificada']);
     }
 
     /**
@@ -69,6 +72,6 @@ class TareaController extends Controller
     {
         $tarea = Tarea::findOrFail($request->tarea_id);
         $tarea->delete();
-        return back()->with(['eliminado' => 'eliminada']);
+        return back()->with(['tipo' => 'Tarea'])->with(['eliminado' => 'eliminada']);
     }
 }

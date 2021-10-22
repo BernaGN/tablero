@@ -5,13 +5,13 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Estatu extends Model
+class Estado extends Model
 {
     use HasFactory;
 
     protected $fillable = [
         'name',
-        'tipo_id',
+        'configuracion_id',
         'backgroundColor_id',
         'textColor_id',
     ];

@@ -25,9 +25,6 @@
                 <a class="navbar-brand" href="{{ url('/') }}">
                     {{ config('app.name', 'Laravel') }}
                 </a>
-                <a class="navbar-brand" href="{{ route('tareas.index') }}">
-                    Tareas
-                </a>
                 <a class="navbar-brand" href="{{ route('agenda.index') }}">
                     Agenda
                 </a>
@@ -40,9 +37,11 @@
 
         <main class="py-4">
             @yield('content')
+            @yield('modal')
         </main>
     </div>
     @yield('js')
+    @yield('toastr')
 </body>
 
 </html>

@@ -1,6 +1,6 @@
-<form action="{{ route('tareas.update', $tareas->first()) }}" method="POST">
+<form action="{{ route('proyectos.update', $proyectos->first()) }}" method="POST">
     <div class="modal-header">
-        <h5 class="modal-title">Editar Tarea</h5>
+        <h5 class="modal-title">Agregar</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
         </button>
@@ -8,10 +8,9 @@
     <div class="modal-body">
         @csrf
         @method('PUT')
-        <input type="hidden" name="tarea_id" id="tarea_id">
         <div class="form-group">
-            <label for="title">Titulo</label>
-            <input type="text" name="title" id="title" class="form-control" placeholder="Ingrese el titulo de la tarea"
+            <label for="title">Nombre</label>
+            <input type="text" name="nombre" id="nombre" class="form-control" placeholder="Ingrese el nombre"
                 aria-describedby="helpId" required>
         </div>
         <div class="form-group">
@@ -19,15 +18,8 @@
             <textarea type="text" name="descripcion" id="descripcion" class="form-control"
                 placeholder="Ingrese el descripcion de la tarea" aria-describedby="helpId" required></textarea>
         </div>
-        <div class="form-group">
-            <label for="estado_id">Estatus</label>
-            <select name="estado_id" id="estado_id" class="form-control" required>
-                <option value=""></option>
-                @foreach ($estados as $estado)
-                    <option value="{{ $estado->id }}">{{ $estado->name }}</option>
-                @endforeach
-            </select>
-        </div>
+        <input type="hidden" name="proyecto_id" id="proyecto_id">
+        <input type="hidden" name="user_id" value="{{ auth()->user()->id }}">
     </div>
     <div class="modal-footer">
         <button type="submit" class="btn btn-primary"><i class="far fa-save"></i> Guardar</button>

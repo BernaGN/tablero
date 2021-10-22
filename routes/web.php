@@ -5,6 +5,7 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\TareaController;
 use App\Http\Controllers\AgendaController;
 use App\Http\Controllers\EstatuController;
+use App\Http\Controllers\ProyectoController;
 use App\Http\Controllers\ComentarioController;
 
 /*
@@ -24,7 +25,8 @@ Auth::routes();
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
 
-Route::resource('/tareas', TareaController::class)->except('create', 'edit', 'show');
+Route::resource('/tareas', TareaController::class)->except('index', 'create', 'edit');
 Route::resource('/estatus', EstatuCesontroller::class)->only('store');
 Route::resource('/comentarios', ComentarioController::class)->only('store');
 Route::resource('/agenda', AgendaController::class)->except('create', 'edit', 'show');
+Route::resource('/proyectos', ProyectoController::class)->only('store', 'update', 'destroy');

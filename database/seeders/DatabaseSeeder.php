@@ -16,7 +16,7 @@ class DatabaseSeeder extends Seeder
         // \App\Models\User::factory(10)->create();
         $this->call(UserSeeder::class);
         $this->call(ColorSeeder::class);
-        $this->call(TipoSeeder::class);
-        $this->call(EstatuSeeder::class);
+        $this->call(ConfiguracionSeeder::class);
+        $this->call(EstadoSeeder::class);
     }
 }

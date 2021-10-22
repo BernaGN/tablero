@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Estatu;
 use Illuminate\Http\Request;
 
-class EstatuController extends Controller
+class EstadoController extends Controller
 {
 
     /**

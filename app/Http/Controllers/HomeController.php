@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Proyecto;
 use Illuminate\Http\Request;
+use App\Models\Configuracion;
 
 class HomeController extends Controller
 {
@@ -23,6 +25,9 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        return view('home', [
+            'proyectos' => Proyecto::where('user_id', auth()->user()->id)->get(),
+            'tipos' => Configuracion::all(),
+        ]);
     }
 }

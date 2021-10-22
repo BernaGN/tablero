@@ -18,9 +18,10 @@ class Tarea extends Model
     protected $fillable = [
         'title',
         'descripcion',
-        'estatu_id',
         'start',
         'end',
+        'estado_id',
+        'proyecto_id',
     ];
 
     //Relaciones

@@ -7,25 +7,6 @@ use Illuminate\Http\Request;
 
 class ProyectoController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
-    {
-        //
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
 
     /**
      * Store a newly created resource in storage.
@@ -35,29 +16,8 @@ class ProyectoController extends Controller
      */
     public function store(Request $request)
     {
-        //
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\Proyecto  $proyecto
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Proyecto $proyecto)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\Proyecto  $proyecto
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Proyecto $proyecto)
-    {
-        //
+        Proyecto::create($request->all());
+        return back()->with(['tipo' => 'Proyecto'])->with(['agregado' => 'agregado']);
     }
 
     /**
@@ -69,7 +29,8 @@ class ProyectoController extends Controller
      */
     public function update(Request $request, Proyecto $proyecto)
     {
-        //
+        $proyecto->update($request->all());
+        return back()->with(['tipo' => 'Proyecto'])->with(['modificado' => 'modificado']);
     }
 
     /**
@@ -80,6 +41,7 @@ class ProyectoController extends Controller
      */
     public function destroy(Proyecto $proyecto)
     {
-        //
+        $proyecto->delete();
+        return back()->with(['tipo' => 'Proyecto'])->with(['eliminado' => 'eliminado']);
     }
 }

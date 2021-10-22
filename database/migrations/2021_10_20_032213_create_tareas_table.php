@@ -21,8 +21,8 @@ class CreateTareasTable extends Migration
             $table->dateTime('end');
             $table->unsignedBigInteger('proyecto_id');
             $table->foreign('proyecto_id')->references('id')->on('proyectos');
-            $table->unsignedInteger('estatu_id');
-            $table->foreign('estatu_id')->references('id')->on('estatus');
+            $table->unsignedInteger('estado_id');
+            $table->foreign('estado_id')->references('id')->on('estados');
             $table->timestamps();
             $table->softDeletes();
         });

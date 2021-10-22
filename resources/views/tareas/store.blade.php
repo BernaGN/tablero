@@ -7,6 +7,7 @@
     </div>
     <div class="modal-body">
         @csrf
+        <input type="hidden" name="proyecto_id" id="proyecto_id" value="{{ $proyecto->id }}">
         <div class="form-group">
             <label for="title">Titulo</label>
             <input type="text" name="title" id="title" class="form-control" placeholder="Ingrese el titulo de la tarea"
@@ -18,11 +19,11 @@
                 placeholder="Ingrese el descripcion de la tarea" aria-describedby="helpId" required></textarea>
         </div>
         <div class="form-group">
-            <label for="estatu_id">Estatus</label>
-            <select name="estatu_id" id="estatu_id" class="form-control" required>
+            <label for="estado_id">Estado</label>
+            <select name="estado_id" id="estado_id" class="form-control" required>
                 <option value=""></option>
-                @foreach ($estatus as $estatu)
-                    <option value="{{ $estatu->id }}">{{ $estatu->name }}</option>
+                @foreach ($estados as $estado)
+                    <option value="{{ $estado->id }}">{{ $estado->name }}</option>
                 @endforeach
             </select>
         </div>
