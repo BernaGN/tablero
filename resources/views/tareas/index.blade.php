@@ -1,5 +1,12 @@
 @extends('layouts.app')
 
+@section('css')
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css"
+        integrity="sha512-vKMx8UnXk60zUwyUnUPM3HbQo8QfmNx7+ltw8Pm5zLusl1XIfwcxo8DbWCqMGKaWeNxWA8yrx5v3SaVpMvR3CA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+@endsection
+
+
 @section('content')
     <div class="container">
         <div class="card-group">
@@ -60,7 +67,13 @@
     </div>
 @endsection
 
+
 @section('js')
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"
+        integrity="sha512-VEd+nq25CkR676O+pLBnDW09R7VQX9Mdiij052gVCp5yVH3jGtH70Ho/UUv4mJDsEdTvqRCFZg0NKGiojGnUCw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="{{ asset('js/jquery.min.js') }}"></script>
     <script src="{{ asset('js/bootstrap.bundle.js') }}"></script>
     <script>
@@ -82,5 +95,35 @@
             var modal = $(this)
             modal.find('.modal-body #tarea_id').val(id)
         })
+        toastr.options = {
+            "closeButton": false,
+            "debug": false,
+            "newestOnTop": false,
+            "progressBar": true,
+            "positionClass": "toast-top-right",
+            "preventDuplicates": false,
+            "onclick": null,
+            "showDuration": "300",
+            "hideDuration": "1000",
+            "timeOut": "5000",
+            "extendedTimeOut": "1000",
+            "showEasing": "swing",
+            "hideEasing": "linear",
+            "showMethod": "fadeIn",
+            "hideMethod": "fadeOut"
+        }
     </script>
+    @if (session('agregado') && session('tipo'))
+        <script>
+            toastr.success('{{ session('tipo') }} {{ session('agregado') }} correctamente')
+        </script>
+    @elseif (session('modificado') && session('tipo'))
+        <script>
+            toastr.warning('{{ session('tipo') }} {{ session('modificado') }} correctamente')
+        </script>
+    @elseif (session('eliminado') && session('tipo'))
+        <script>
+            toastr.error('{{ session('tipo') }} {{ session('eliminado') }} correctamente')
+        </script>
+    @endif
 @endsection

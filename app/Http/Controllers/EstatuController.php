@@ -17,6 +17,6 @@ class EstatuController extends Controller
     public function store(Request $request)
     {
         Estatu::create($request->all());
-        return back();
+        return back()->with(['tipo' => 'Columna'])->with(['agregado' => 'agregada']);
     }
 }

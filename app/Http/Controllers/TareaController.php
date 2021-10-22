@@ -42,7 +42,7 @@ class TareaController extends Controller
     public function store(Request $request)
     {
         Tarea::create($request->all());
-        return back();
+        return back()->with(['tipo' => 'Tarea'])->with(['agregado' => 'agregada']);
     }
 
     /**
@@ -56,7 +56,7 @@ class TareaController extends Controller
     {
         $tarea = Tarea::findOrFail($request->tarea_id);
         $tarea->update($request->all());
-        return back();
+        return back()->with(['modificado' => 'modificada']);
     }
 
     /**
@@ -69,6 +69,6 @@ class TareaController extends Controller
     {
         $tarea = Tarea::findOrFail($id);
         $tarea->delete();
-        return back();
+        return back()->with(['eliminado' => 'eliminada']);
     }
 }

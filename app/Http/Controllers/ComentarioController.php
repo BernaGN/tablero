@@ -17,6 +17,6 @@ class ComentarioController extends Controller
     public function store(Request $request)
     {
         Comentario::create($request->all());
-        return back();
+        return back()->with(['tipo' => 'Comentario'])->with(['agregado' => 'agregado']);
     }
 }

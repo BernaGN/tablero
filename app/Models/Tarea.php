@@ -16,9 +16,11 @@ class Tarea extends Model
     use SoftDeletes;
 
     protected $fillable = [
-        'titulo',
+        'title',
         'descripcion',
         'estatu_id',
+        'start',
+        'end',
     ];
 
     //Relaciones
@@ -32,7 +34,7 @@ class Tarea extends Model
     //Mutators
 
     public function setTituloAttribute($value) {
-        $this->attributes['titulo'] = strtoupper($value);
+        $this->attributes['title'] = strtoupper($value);
     }
 
     public function setDescripcionAttribute($value) {

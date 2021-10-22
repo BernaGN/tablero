@@ -15,10 +15,12 @@ class CreateTareasTable extends Migration
     {
         Schema::create('tareas', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('titulo');
+            $table->string('title');
             $table->text('descripcion');
             $table->unsignedInteger('estatu_id');
             $table->foreign('estatu_id')->references('id')->on('estatus');
+            $table->dateTime('start');
+            $table->dateTime('end');
             $table->timestamps();
             $table->softDeletes();
         });

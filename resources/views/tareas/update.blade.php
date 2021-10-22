@@ -10,9 +10,9 @@
         @method('PUT')
         <input type="hidden" name="tarea_id" id="tarea_id">
         <div class="form-group">
-            <label for="titulo">Titulo</label>
-            <input type="text" name="titulo" id="titulo" class="form-control"
-                placeholder="Ingrese el titulo de la tarea" aria-describedby="helpId" required>
+            <label for="title">Titulo</label>
+            <input type="text" name="title" id="title" class="form-control" placeholder="Ingrese el titulo de la tarea"
+                aria-describedby="helpId" required>
         </div>
         <div class="form-group">
             <label for="descripcion">Descripcion</label>
