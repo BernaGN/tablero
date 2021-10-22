@@ -24,7 +24,7 @@
                             </h5>
                         </div>
                         <div class="card-body">
-                            @each('tareas.tarea', $tareas->where('estatu_id', $estatu->id), 'tarea')
+                            @each('tareas.show', $tareas->where('estatu_id', $estatu->id), 'tarea')
                         </div>
                     </div>
                 @endforeach
@@ -53,7 +53,7 @@
     <div class="modal" id="agregarColumna" tabindex="-1" role="dialog">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
-                @include('tareas.columna')
+                @include('layouts.columna')
             </div>
         </div>
     </div>
@@ -61,7 +61,7 @@
     <div class="modal" id="agregarComentario" tabindex="-1" role="dialog">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
-                @include('tareas.comentario')
+                @include('layouts.comentario')
             </div>
         </div>
     </div>
