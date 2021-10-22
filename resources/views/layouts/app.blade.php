@@ -31,6 +31,9 @@
                 <a class="navbar-brand" href="{{ route('agenda.index') }}">
                     Agenda
                 </a>
+                <a class="navbar-brand" href="{{ route('chatify') }}">
+                    Chat
+                </a>
                 @include('layouts.sesion')
             </div>
         </nav>

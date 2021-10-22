@@ -17,10 +17,12 @@ class CreateTareasTable extends Migration
             $table->bigIncrements('id');
             $table->string('title');
             $table->text('descripcion');
-            $table->unsignedInteger('estatu_id');
-            $table->foreign('estatu_id')->references('id')->on('estatus');
             $table->dateTime('start');
             $table->dateTime('end');
+            $table->unsignedBigInteger('proyecto_id');
+            $table->foreign('proyecto_id')->references('id')->on('proyectos');
+            $table->unsignedInteger('estatu_id');
+            $table->foreign('estatu_id')->references('id')->on('estatus');
             $table->timestamps();
             $table->softDeletes();
         });
