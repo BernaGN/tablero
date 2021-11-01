@@ -22,12 +22,12 @@ class ProyectoController extends Controller
             $confi = Configuracion::create([
                 'nombre' => $request->nameConfiguracion
             ]);
-            foreach($request->name as $name) {
+            for($i = 0; $i < count($request->name); $i++) {
                 Estado::create([
-                    'name' => $name,
+                    'name' => $request->name[$i],
                     'configuracion_id' => $confi->id,
-                    'textColor_id' => $request->textColor_id,
-                    'backgroundColor_id' => $request->backgroundColor_id ,
+                    'textColor_id' => $request->textColor_id[$i],
+                    'backgroundColor_id' => $request->backgroundColor_id[$i],
                 ]);
             }
             Proyecto::create([
