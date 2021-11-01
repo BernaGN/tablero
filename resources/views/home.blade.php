@@ -13,46 +13,52 @@
         <div class="row justify-content-center">
             <div class="col-md">
                 <a class="btn btn-primary" role="button" data-toggle="modal" data-target="#agregarProyecto">Nuevo</a>
-                <div class="card mt-2">
-                    <table class="table">
-                        <thead>
-                            <tr>
-                                <th>Id</th>
-                                <th>Nombre</th>
-                                <th>Descripcion</th>
-                                <th></th>
-                                <th></th>
-                                <th></th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            @foreach ($proyectos as $proyecto)
+                @if ($proyectos->count())
+                    <div class="card mt-2">
+                        <table class="table">
+                            <thead>
                                 <tr>
-                                    <td scope="row">{{ $proyecto->id }}</td>
-                                    <td>{{ $proyecto->nombre }}</td>
-                                    <td>{{ $proyecto->descripcion }}</td>
-                                    <td>
-
-                                        <a class="btn btn-link" role="button"
-                                            href="{{ route('tareas.show', $proyecto->id) }}">Ver</a>
-                                    </td>
-                                    <td>
-                                        <a class="btn btn-warning" role="button" data-toggle="modal"
-                                            data-target="#editarProyecto" data-id="{{ $proyecto->id }}"
-                                            data-nombre="{{ $proyecto->nombre }}"
-                                            data-descripcion="{{ $proyecto->descripcion }}">Editar</a>
-                                    </td>
-                                    <td>
-                                        <a class="btn btn-danger" role="button" data-toggle="modal"
-                                            data-target="#eliminarProyecto" data-id="{{ $proyecto->id }}">Eliminar</a>
-                                    </td>
+                                    <th>Id</th>
+                                    <th>Nombre</th>
+                                    <th>Descripcion</th>
+                                    <th></th>
+                                    <th></th>
+                                    <th></th>
                                 </tr>
-                            @endforeach
-                        </tbody>
-                    </table>
-                </div>
+                            </thead>
+                            <tbody>
+                                @foreach ($proyectos as $proyecto)
+                                    <tr>
+                                        <td scope="row">{{ $proyecto->id }}</td>
+                                        <td>{{ $proyecto->nombre }}</td>
+                                        <td>{{ $proyecto->descripcion }}</td>
+                                        <td>
+
+                                            <a class="btn btn-link" role="button"
+                                                href="{{ route('tareas.show', $proyecto->id) }}">Ver</a>
+                                        </td>
+                                        <td>
+                                            <a class="btn btn-warning" role="button" data-toggle="modal"
+                                                data-target="#editarProyecto" data-id="{{ $proyecto->id }}"
+                                                data-nombre="{{ $proyecto->nombre }}"
+                                                data-descripcion="{{ $proyecto->descripcion }}">Editar</a>
+                                        </td>
+                                        <td>
+                                            <a class="btn btn-danger" role="button" data-toggle="modal"
+                                                data-target="#eliminarProyecto" data-id="{{ $proyecto->id }}">Eliminar</a>
+                                        </td>
+                                    </tr>
+                                @endforeach
+                            </tbody>
+                        </table>
+                    @else
+                        <h1>
+                            <center>No hay registros</center>
+                        </h1>
+                @endif
             </div>
         </div>
+    </div>
     </div>
 @endsection
 

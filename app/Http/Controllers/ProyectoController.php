@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Estado;
 use App\Models\Proyecto;
 use Illuminate\Http\Request;
+use App\Models\Configuracion;
 
 class ProyectoController extends Controller
 {
@@ -16,7 +18,28 @@ class ProyectoController extends Controller
      */
     public function store(Request $request)
     {
-        Proyecto::create($request->all());
+        if($request->configuracion_id == 4) {
+            $confi = Configuracion::create([
+                'nombre' => $request->nameConfiguracion
+            ]);
+            foreach($request->name as $name) {
+                Estado::create([
+                    'name' => $name,
+                    'configuracion_id' => $confi->id,
+                    'textColor_id' => $request->textColor_id,
+                    'backgroundColor_id' => $request->backgroundColor_id ,
+                ]);
+            }
+            Proyecto::create([
+                'nombre' => $request->nombre,
+                'descripcion' => $request->descripcion,
+                'configuracion_id' => $confi->id,
+                'user_id' => auth()->user()->id,
+            ]);
+        }
+        else {
+            Proyecto::create($request->all());
+        }
         return back()->with(['tipo' => 'Proyecto'])->with(['agregado' => 'agregado']);
     }
 

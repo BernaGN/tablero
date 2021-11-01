@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Color;
 use App\Models\Proyecto;
 use Illuminate\Http\Request;
 use App\Models\Configuracion;
@@ -28,6 +29,7 @@ class HomeController extends Controller
         return view('home', [
             'proyectos' => Proyecto::where('user_id', auth()->user()->id)->get(),
             'tipos' => Configuracion::all(),
+            'colores' => Color::all(),
         ]);
     }
 }
