@@ -29,11 +29,11 @@
         </div>
         <div class="form-group">
             <label for="start">Inico</label>
-            <input type="datetime-local" id="start" name="start">
+            <input type="datetime-local" id="start" name="start" class="form-control">
         </div>
         <div class="form-group">
             <label for="end">Fin</label>
-            <input type="datetime-local" id="end" name="end">
+            <input type="datetime-local" id="end" name="end" class="form-control">
         </div>
     </div>
     <div class="modal-footer">
