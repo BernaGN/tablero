@@ -15,14 +15,17 @@
             <button type="submit" class="btn btn-default" data-toggle="modal" data-target="#agregarTarea"><i
                     class="fas fa-plus"></i> Agregar Tarea
             </button>
-            <button type="submit" class="btn btn-default" data-toggle="modal" data-target="#agregarColumna"><i
-                    class="fas fa-plus"></i> Agregar Columna
-            </button>
+            @if ($proyecto->configuracion_id > 4)
+                <button type="submit" class="btn btn-default" data-toggle="modal" data-target="#agregarColumna"><i
+                        class="fas fa-plus"></i> Agregar Columna
+                </button>
+            @endif
             <div class="row col-12">
                 @foreach ($estados as $estado)
                     <div class="card col-md">
                         <div class="card-header mt-2 bg-{{ $estado->backgroundColor->nombre }}">
-                            <h5 class="card-title text-center text-{{ $estado->textColor->nombre }}">{{ $estado->name }}
+                            <h5 class="card-title text-center text-{{ $estado->textColor->nombre }}">
+                                {{ $estado->name }}
                             </h5>
                         </div>
                         <div class="card-body">
