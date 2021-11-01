@@ -9,8 +9,8 @@
 
 @section('content')
     <div class="container">
-        <p>{{ $proyecto->nombre }}</p>
-        <p>{{ $proyecto->descripcion }}</p>
+        <p><strong>Nombre: </strong>{{ $proyecto->nombre }}</p>
+        <p><strong>Descripcion: </strong>{{ $proyecto->descripcion }}</p>
         <div class="card-group">
             <button type="submit" class="btn btn-default" data-toggle="modal" data-target="#agregarTarea"><i
                     class="fas fa-plus"></i> Agregar Tarea
