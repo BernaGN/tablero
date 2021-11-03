@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Estado;
+use App\Models\Proyecto;
 use Illuminate\Http\Request;
 
 class AgendaController extends Controller
@@ -23,7 +25,10 @@ class AgendaController extends Controller
      */
     public function index()
     {
-        return view('agenda.index');
+        return view('agenda.index',[
+            'proyectos' => Proyecto::where('user_id', auth()->user()->id)->get(),
+            'estados' => Estado::all(),
+        ]);
     }
 
     /**

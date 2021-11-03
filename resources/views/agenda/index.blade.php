@@ -13,6 +13,10 @@
     </div>
 @endsection
 
+@section('modal')
+
+@endsection
+
 
 @section('js')
     <script src="{{ asset('js/jquery.min.js') }}"></script>

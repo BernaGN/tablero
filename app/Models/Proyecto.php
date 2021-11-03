@@ -36,8 +36,8 @@ class Proyecto extends Model
 
     //Mutators
 
-    public function setTituloAttribute($value) {
-        $this->attributes['title'] = strtoupper($value);
+    public function setNombreAttribute($value) {
+        $this->attributes['nombre'] = strtoupper($value);
     }
 
     public function setDescripcionAttribute($value) {
